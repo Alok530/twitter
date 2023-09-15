@@ -62,7 +62,7 @@ const OpenSetupProfile = ({
           profilePicture: url
         };
 
-        const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, updatedUser,{
+        const res = await axios.put(`/api/users/${currentUser._id}`, updatedUser,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
