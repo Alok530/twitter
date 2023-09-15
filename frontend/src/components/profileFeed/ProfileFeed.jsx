@@ -38,7 +38,8 @@ const ProfileFeed = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/users/${params.id}`,{
+        // const res = await axios.get(`${BASE_URL}/users/${params.id}`,{
+        const res = await axios.get(`/api/users/${params.id}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -56,7 +57,8 @@ const ProfileFeed = () => {
     if (user) {
       const getUsersPosts = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/posts/${user._id}`,{
+          // const res = await axios.get(`${BASE_URL}/users/posts/${user._id}`,{
+          const res = await axios.get(`/api/users/posts/${user._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -75,7 +77,7 @@ const ProfileFeed = () => {
     if (user) {
       const getUsersComments = async () => {
         try {
-          const res = await axios.get(`http://localhost:8000/api/users/comments/${user._id}`,{
+          const res = await axios.get(`/api/users/comments/${user._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -98,7 +100,8 @@ const ProfileFeed = () => {
     if (user) {
       const getUsersLikedPosts = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/liked-posts/${user?._id}`,{
+          // const res = await axios.get(`${BASE_URL}/users/liked-posts/${user?._id}`,{
+          const res = await axios.get(`/api/users/liked-posts/${user?._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -131,7 +134,8 @@ const ProfileFeed = () => {
 
   const handleFollow = async () => {
     try {
-      const res = await axios.put(`http://localhost:8000/api/users/follow/${currentUser._id}`, {
+      // const res = await axios.put(`http://localhost:8000/api/users/follow/${currentUser._id}`, {
+      const res = await axios.put(`/api/users/follow/${currentUser._id}`, {
         userId: user._id
       },{
         headers: {
