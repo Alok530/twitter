@@ -70,7 +70,7 @@ const SearchInput = () => {
           ) : (
             <div className="searchInputDropdownText">
               <button onClick={() => setIsSearchInputActive(false)}>X</button>
-              Try searching for people, topics or keywords
+              Try searching for people
             </div>
           )}
         </div>
