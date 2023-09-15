@@ -399,45 +399,7 @@ const Edittweetform = ({ type, setPosts, postdone,postId }) => {
                   <span>Picture</span>
                 </div>
               )}
-            </div>
-            {/* <div className="shareIcon">
-              <label style={{ cursor: "pointer" }} htmlFor="video">
-                <AiOutlineVideoCameraAdd
-                  onMouseEnter={() => setIsVideoHovered(true)}
-                  onMouseLeave={() => setIsVideoHovered(false)}
-                />
-              </label>
-              <input
-                type="file"
-                accept="video/*"
-                id="video"
-                name="video"
-                onChange={handleVideoChange}
-                style={{ display: "none" }}
-              />
-              {isVideoHovered && (
-                <div className="shareIsHovered">
-                  <span>Video</span>
-                </div>
-              )}
-            </div>             */}
-            <div className="shareIcon">
-              <BsEmojiSmile
-                onMouseEnter={() => setIsSmileHovered(true)}
-                onMouseLeave={() => setIsSmileHovered(false)}
-                onClick={() => setShowEmojiPicker((prev) => !prev)}
-              />
-              {isSmileHovered && (
-                <div className="shareIsHovered">
-                  <span>Emoji</span>
-                </div>
-              )}
-              {showEmojiPicker && (
-                <div className="emojiPickerContainer">
-                  <Picker onEmojiClick={handleEmojiClick} />
-                </div>
-              )}
-            </div>
+            </div>            
           </div>
           {loading ? (
             <button

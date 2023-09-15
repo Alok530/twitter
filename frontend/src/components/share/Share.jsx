@@ -277,7 +277,7 @@ const Share = ({ type, setPosts, postdone }) => {
             />
           </div>
         )}
-        {active && (
+        {/*active && (
           <div className="shareActive">
             <div
               className="shareActiveWrapper"
@@ -350,7 +350,7 @@ const Share = ({ type, setPosts, postdone }) => {
               </div>
             )}
           </div>
-        )}
+            )*/}
 
 
         
@@ -363,7 +363,7 @@ const Share = ({ type, setPosts, postdone }) => {
                 <AiOutlineFileImage
                   onMouseEnter={() => setIsPictureHovered(true)}
                   onMouseLeave={() => setIsPictureHovered(false)}
-                />
+                  />                  
               </label>
               <input
                 type="file"
@@ -401,7 +401,7 @@ const Share = ({ type, setPosts, postdone }) => {
                 </div>
               )}
             </div>             */}
-            <div className="shareIcon">
+            {/* <div className="shareIcon">
               <BsEmojiSmile
                 onMouseEnter={() => setIsSmileHovered(true)}
                 onMouseLeave={() => setIsSmileHovered(false)}
@@ -417,7 +417,7 @@ const Share = ({ type, setPosts, postdone }) => {
                   <Picker onEmojiClick={handleEmojiClick} />
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
           {loading ? (
             <button

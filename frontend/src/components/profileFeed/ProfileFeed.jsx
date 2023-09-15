@@ -72,25 +72,6 @@ const ProfileFeed = () => {
     };
   }, [user]);
 
-  //get users comments
-  useEffect(() => {
-    if (user) {
-      const getUsersComments = async () => {
-        try {
-          const res = await axios.get(`/api/users/comments/${user._id}`,{
-            headers: {
-              Authorization: window.localStorage.getItem("tauthtoken")
-            }
-          });          
-          setUsersComments(res.data);
-        } catch (err) {
-          console.log(err);
-        };
-      };
-      getUsersComments();
-    };
-  }, [user]);
-
 
   //filter posts wihout images or videos
   const postsWithMedia = usersPosts.filter((post) => post.images.length > 0 || post.video !== undefined);
@@ -99,8 +80,7 @@ const ProfileFeed = () => {
   useEffect(() => {
     if (user) {
       const getUsersLikedPosts = async () => {
-        try {
-          // const res = await axios.get(`${BASE_URL}/users/liked-posts/${user?._id}`,{
+        try {          
           const res = await axios.get(`/api/users/liked-posts/${user?._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")

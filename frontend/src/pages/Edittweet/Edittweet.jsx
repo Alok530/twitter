@@ -25,8 +25,7 @@ const Edittweet = () => {
 
   return (
     <div className="tweet">
-      <Sidebar />
-      {/* <Share type="tweet" setPosts={setPosts} postdone={setPostdone}/> */}
+      <Sidebar />      
       <Edittweetform type="Edit" setPosts={setPosts} postId={postId}/>
       <Rightbar />
     </div>

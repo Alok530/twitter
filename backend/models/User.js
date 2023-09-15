@@ -17,19 +17,7 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  // dobDay: {
-  //   type: String,
-  //   // required: true
-  // },
-  // dobMonth: {
-  //   type: String,
-  //   // required: true
-  // },
-  // dobYear: {
-  //   type: String,
-  //   // required: true
-  // },
+  },  
   phone: {
     type: String,
   },
@@ -52,19 +40,7 @@ const UserSchema = new mongoose.Schema({
   likedPosts: {
     type: Array,
     default: []
-  },
-  // sharedPosts: {
-  //   type: Array,
-  //   default: []
-  // },
-  // likedComments: {
-  //   type: Array,
-  //   default: []
-  // },
-  // sharedComments: {
-  //   type: Array,
-  //   default: []
-  // },
+  },  
   followings: {
     type: Array,
     default: [],
@@ -72,16 +48,7 @@ const UserSchema = new mongoose.Schema({
   followers: {
     type: Array,
     default: [],
-  },
-  // preferredContent: {
-  //   type: Array,
-  // },
-  // trackTwitterContent: {
-  //   type: Boolean
-  // },
-  // allowNotifications: {
-  //   type: Boolean
-  // }
+  },  
 }, { timestamps: true });
 
 module.exports = mongoose.model("User", UserSchema);

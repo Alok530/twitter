@@ -43,8 +43,8 @@ const Rightbar = ({ page }) => {
               <div className="rightbarTrendsItems">
                 <div className="rightbarTrendItem">
                   <p className="rightbarTrendsItemText">Trending</p>
-                  <div className="rightbarTrendsItemTitle">#PokemonUnite</div>
-                  <p className="rightbarTrendsItemText">16.3K Tweets</p>
+                  <div className="rightbarTrendsItemTitle">#IndiaOnMoon</div>
+                  <p className="rightbarTrendsItemText">19K Tweets</p>
                 </div>
                 <div className="rightbarTrendsIcon">
                   <FiMoreHorizontal className="rightbarIcon" />
@@ -52,9 +52,9 @@ const Rightbar = ({ page }) => {
               </div>
               <div className="rightbarTrendsItems">
                 <div className="rightbarTrendItem">
-                  <p className="rightbarTrendsItemText">Gaming • Trending</p>
-                  <div className="rightbarTrendsItemTitle">#Riot</div>
-                  <p className="rightbarTrendsItemText">43.3K Tweets</p>
+                  <p className="rightbarTrendsItemText">Sports • Trending</p>
+                  <div className="rightbarTrendsItemTitle">#AsiaCup</div>
+                  <p className="rightbarTrendsItemText">12.3K Tweets</p>
                 </div>
                 <div className="rightbarTrendsIcon">
                   <FiMoreHorizontal className="rightbarIcon" />
@@ -62,8 +62,8 @@ const Rightbar = ({ page }) => {
               </div>              
               <div className="rightbarTrendsItems">
                 <div className="rightbarTrendItem">
-                  <p className="rightbarTrendsItemText">Trending</p>
-                  <div className="rightbarTrendsItemTitle">Funimation</div>
+                  <p className="rightbarTrendsItemText">Film Trending</p>
+                  <div className="rightbarTrendsItemTitle">#Jawan</div>
                   <p className="rightbarTrendsItemText">14.6K Tweets</p>
                 </div>
                 <div className="rightbarTrendsIcon">

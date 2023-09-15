@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {getUser,getUsers,getRandomUsers,likePost,sharePost,likeComment,followUser,bookmarkPost,getUsersPosts,updateUser,getComments,getLikedPosts,getLikedComments,getFollowings,getFollowers,getBookmarks} = require("../controllers/userController.js");
+const {getUser,getUsers,getRandomUsers,likePost,followUser,bookmarkPost,getUsersPosts,updateUser,getLikedPosts,getFollowings,getFollowers,getBookmarks} = require("../controllers/userController.js");
 const { verifyToken } = require("../middleware/auth.js");
 
 
@@ -16,8 +16,6 @@ router.get("/", verifyToken ,getUsers);
 //LIKE A Post
 router.put("/like/:postId", verifyToken ,likePost);
 
-//LIKE COMMENT
-router.put("/like/comment/:commentId", verifyToken ,likeComment);
 
 //FOLLOW A USER
 router.put("/follow/:currentUserId", verifyToken ,followUser);
@@ -25,7 +23,6 @@ router.put("/follow/:currentUserId", verifyToken ,followUser);
 //BOOKMARK A POST
 router.put("/bookmark/:postId", verifyToken ,bookmarkPost);
 
-router.put("/share/:postId", verifyToken ,sharePost);
 
 //GET USER'S POSTS
 router.get("/posts/:userId", verifyToken ,getUsersPosts);
@@ -33,14 +30,10 @@ router.get("/posts/:userId", verifyToken ,getUsersPosts);
 //UPDATE USER
 router.put("/:id", verifyToken ,updateUser);
 
-//GET USERS'COMMENTS
-router.get("/comments/:userId", verifyToken ,getComments);
 
 //GET POSTS THAT USER HAS LIKED
 router.get("/liked-posts/:userId", verifyToken ,getLikedPosts);
 
-//GET COMMENTS TAHT USER HAS LIKED
-router.get("/liked-comments/:userId", verifyToken ,getLikedComments);
 
 //GET USER'S FOLLOWINGS
 router.get("/followings/:userId", verifyToken ,getFollowings);

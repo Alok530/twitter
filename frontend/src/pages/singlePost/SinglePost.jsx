@@ -76,21 +76,21 @@ const SinglePost = () => {
         <div className="singlePostContent">
           <SinglePagePost currentPost={currentPost} currentUser={currentUser} postCreator={postCreator} />
         </div>
-        <CommentInput
+        {/* <CommentInput
           isCommenting={isCommenting}
           setIsCommenting={setIsCommenting}
           postCreator={postCreator}
           currentPost={currentPost}
           currentUser={currentUser}
           setComments={setComments}
-        />
-        <div className="singlePostCommentsContainer">
+        /> */}
+        {/* <div className="singlePostCommentsContainer">
           <Comments
             currentPost={currentPost}
             setComments={setComments}
             comments={comments}
           />
-        </div>
+        </div> */}
       </div>
       <Rightbar page="home" />
     </div>

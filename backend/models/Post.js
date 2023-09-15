@@ -18,11 +18,7 @@ const PostSchema = new mongoose.Schema({
   likes: {
     type: Array,
     defualt: []
-  },
-  // shares: {
-  //   type: [String],
-  //   default: []
-  // },
+  },  
   whoCanReply: {
     type: String,
     default: "Everyone"
@@ -31,10 +27,10 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  sharesCount: {
-    type: Number,
-    default: 0
-  },
+  // sharesCount: {
+  //   type: Number,
+  //   default: 0
+  // },
   userUsername: {
     type: String
   }

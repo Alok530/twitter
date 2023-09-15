@@ -1,6 +1,5 @@
 const User = require("../models/User.js");
 const Post = require("../models/Post.js");
-const Comment = require("../models/Comment.js");
 
 const getUser = async (req, res, next) => {
   const userId = req.params.id;
@@ -36,51 +35,6 @@ const likePost = async (req, res, next) => {
       const updatedPost = await post.updateOne({ $pull: { likes: userId } }, { new: true });
       await user.updateOne({ $pull: { likedPosts: postId } });
       res.status(200).json(post);
-    };
-  } catch (err) {
-    next(err);
-  };
-};
-
-
-
-const sharePost = async (req, res, next) => {
-  const postId = req.params.postId;
-  const userId = req.body.userId;
-  try {
-    const post = await Post.findById(postId);
-    const user = await User.findById(userId);
-    if (!user.sharedPosts.includes(postId)) {
-      await post.updateOne({ $push: { shares: userId } });
-      await post.updateOne({ $inc: { sharesCount: +1 } });
-      await user.updateOne({ $push: { sharedPosts: postId } });
-      res.status(200).send("Post has been shared!");
-    } else {
-      await post.updateOne({ $pull: { shares: userId } });
-      await post.updateOne({ $inc: { sharesCount: -1 } });
-      await user.updateOne({ $pull: { sharedPosts: postId } });
-      res.status(200).send("Post has been unshared!");
-    }
-  } catch (err) {
-    next(err);
-  };
-};
-
-
-const likeComment = async (req, res, next) => {
-  const commentId = req.params.commentId;
-  const userId = req.body.userId;
-  try {
-    const comment = await Comment.findById(commentId);
-    const user = await User.findById(userId);
-    if (!comment.likes.includes(userId)) {
-      await comment.updateOne({ $push: { likes: userId } });
-      await user.updateOne({ $push: { likedComments: commentId } });
-      res.status(200).json("The comment has been liked!");
-    } else {
-      await comment.updateOne({ $pull: { likes: userId } });
-      await user.updateOne({ $pull: { likedComments: commentId } });
-      res.status(200).json("The post has been unliked!");
     };
   } catch (err) {
     next(err);
@@ -155,16 +109,6 @@ const updateUser = async (req, res, next) => {
 };
 
 
-const getComments = async (req, res, next) => {
-  const userId = req.params.userId;
-  try {
-    const usersComments = await Comment.find({ userId: userId }).sort({ createdAt: -1 });
-    res.status(200).json(usersComments);
-  } catch (err) {
-    next(err);
-  };
-};
-
 const getLikedPosts = async (req, res, next) => {
   const userId = req.params.userId;
   try {
@@ -187,28 +131,6 @@ const getLikedPosts = async (req, res, next) => {
   };
 };
 
-
-const getLikedComments = async (req, res, next) => {
-  const userId = req.params.userId;
-  try {
-    const user = await User.findById(userId);
-    const likedComments = await Promise.all(
-      user.likedComments.map((commentId) => {
-        return Comment.findById(commentId);
-      })
-    );
-
-    let commentList = [];
-    likedComments.map((comment) => {
-      const { _id, userId, postId, text, image, video, likes, shares, createdAt, updatedAt } = comment;
-      commentList.push({ _id, userId, postId, text, image, video, likes, shares, createdAt, updatedAt });
-    });
-
-    res.status(200).json(commentList);
-  } catch (err) {
-    next(err);
-  };
-};
 
 const getFollowings = async (req, res, next) => {
   const userId = req.params.userId;
@@ -285,4 +207,4 @@ const getBookmarks = async (req, res, next) => {
   };
 };
 
-module.exports = {getUser,getRandomUsers,likePost,sharePost,likeComment,followUser,bookmarkPost,getUsersPosts,updateUser,getComments,getLikedPosts,getLikedComments,getFollowings,getFollowers,getUsers,getBookmarks}
+module.exports = {getUser,getRandomUsers,likePost,followUser,bookmarkPost,getUsersPosts,updateUser,getLikedPosts,getFollowings,getFollowers,getUsers,getBookmarks}

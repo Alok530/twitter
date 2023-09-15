@@ -4,7 +4,6 @@ const cors = require("cors");
 const authRoute = require("./routes/authRoute.js");
 const userRoute = require("./routes/userRoute.js");
 const postRoute = require("./routes/postRoute.js");
-const commentRoute = require("./routes/commentRoute.js");
 const searchRoute = require("./routes/searchRoute.js");
 const path = require("path");
 
@@ -39,7 +38,6 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
-app.use("/api/comments", commentRoute);
 app.use("/api/search", searchRoute);
 
 

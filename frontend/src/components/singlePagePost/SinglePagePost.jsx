@@ -177,13 +177,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
           </div>
         </div>
         <div className="singlePagePostRetweetsLikesContainer">
-          <div className="singlePagePostRetweetsLikes">
-            <div
-              className="singlePagePostShares"
-              onClick={() => setOpenRetweets(true)}
-            >
-              <span className="singlePagePostCount">{currentPost?.shares?.length}{" "}</span>Retweets
-            </div>
+          <div className="singlePagePostRetweetsLikes">            
             <div
               className="singlePagePostLikes"
               onClick={() => setOpenLikes(true)}
@@ -192,27 +186,8 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
             </div>
           </div>
         </div>
-        <div className="postBottom">
-          <div
-            className="postBottomItem"
-            onClick={() => handleOpen(("comment"))}
-          >
-            <BiComment className="postBottomIcon" />
-          </div>
-          <div
-            className="postBottomItem"
-            onClick={() => handleOpen("retweet")}
-          >
-            {isShared ? (
-              <AiOutlineSync
-                style={{ color: "green" }}
-                className="postBottomIcon share"
-              />
-            ) : (
-              <AiOutlineSync className="postBottomIcon share" />
-            )}
-          </div>
-          <div
+        <div className="postBottom">          
+          <div 
             className="postBottomItem"
             onClick={() => handleLike(currentPost._id)}
           >
@@ -229,16 +204,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
             <AiOutlineUpload className="postBottomIcon" />
           </div>
         </div>
-      </div>
-      {
-        openComment && (
-          <PostOpenComment
-            post={currentPost}
-            user={postCreator}
-            setOpenComment={setOpenComment}
-          />
-        )
-      }
+      </div>      
       {
         openMore && (
           <PostOpenMore
@@ -248,7 +214,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
             postId={currentPost._id}
           />
         )
-      }
+      } 
       {
         openShare && (
           <PostOpenShare
@@ -257,39 +223,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
             postId={currentPost?._id}
           />
         )
-      }
-      {
-        openRetweet && (
-          <PostOpenRetweet
-            setOpenRetweet={setOpenRetweet}
-            handleShare={handleShare}
-            isShared={isShared}
-            postId={currentPost?._id}
-          />
-        )
-      }
-      {
-        openMedia && (
-          <PostOpenMedia
-            post={currentPost}
-            postCreator={postCreator}
-            openMedia={openMedia}
-            setOpenMedia={setOpenMedia}
-            images={currentPost?.images}
-            slideNumber={slideNumber}
-            setSlideNumber={setSlideNumber}
-          />
-        )
-      }
-      {
-        openRetweets && (
-          <Users
-            setOpenRetweets={setOpenRetweets}
-            type="retweeted"
-            postId={currentPost?._id}
-          />
-        )
-      }
+      }            
       {
         openLikes && (
           <Users
@@ -299,7 +233,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
             setOpenLikes={setOpenLikes}
           />
         )
-      }
+      } 
     </div >
   )
 }
