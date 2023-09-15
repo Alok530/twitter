@@ -29,7 +29,8 @@ const OpenSignIn = ({ setOpenSignIn, setOpenRegister }) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post(`${BASE_URL}/auth/signin`, {
+      // const res = await axios.post(`${BASE_URL}/auth/signin`, {
+      const res = await axios.post(`/api/auth/signin`, {
         userEmailPhone,
         password
       });
