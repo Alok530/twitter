@@ -28,7 +28,7 @@ const SinglePost = () => {
     const getPost = async () => {
       dispatch(fetchStart());
       try {
-        const res = await axios.get(`${BASE_URL}/posts/find/${params.id}`,{
+        const res = await axios.get(`/api/posts/find/${params.id}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -48,7 +48,7 @@ const SinglePost = () => {
     if (currentPost) {
       const getPostCreator = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/${currentPost.userId}`,{
+          const res = await axios.get(`/api/users/${currentPost.userId}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }

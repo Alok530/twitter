@@ -11,7 +11,7 @@ const Comments = ({ currentPost, setComments, comments }) => {
     if (currentPost) {
       const getComments = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/comments/${currentPost?._id}`,{
+          const res = await axios.get(`/api/comments/${currentPost?._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }

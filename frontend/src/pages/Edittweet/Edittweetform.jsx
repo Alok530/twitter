@@ -46,7 +46,7 @@ const Edittweetform = ({ type, setPosts, postdone,postId }) => {
   
   const fetchPost = async (postid) => {        
     try {
-      const res = await axios.get(`${BASE_URL}/posts/find/${postid}`,{
+      const res = await axios.get(`/api/posts/find/${postid}`,{
         headers: {
           Authorization: window.localStorage.getItem("tauthtoken")
         }
@@ -157,7 +157,7 @@ const Edittweetform = ({ type, setPosts, postdone,postId }) => {
           video: url,
         };
 
-        const res = await axios.post(`${BASE_URL}/posts`, newPost,{
+        const res = await axios.post(`/api/posts`, newPost,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -204,7 +204,7 @@ const Edittweetform = ({ type, setPosts, postdone,postId }) => {
 
         // console.log('images list',imagesList);        
         // console.log(updatedPost);
-        const res = await axios.post(`${BASE_URL}/posts/update`, updatedPost,{
+        const res = await axios.post(`/api/posts/update`, updatedPost,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -225,7 +225,7 @@ const Edittweetform = ({ type, setPosts, postdone,postId }) => {
         updatedPost.desc= postInputText;
         
         console.log('before update ',updatedPost);
-        const res = await axios.post(`${BASE_URL}/posts/update`, updatedPost,{
+        const res = await axios.post(`/api/posts/update`, updatedPost,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }

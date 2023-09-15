@@ -21,7 +21,7 @@ const PostOpenMedia = ({ openMedia, setOpenMedia, images, slideNumber, setSlideN
     if (post) {
       const getComments = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/comments/${post._id}`);
+          const res = await axios.get(`/api/comments/${post._id}`);
           setComments(res.data);
         } catch (err) {
           console.log(err);

@@ -21,7 +21,7 @@ const Users = ({ setOpenRetweets, setOpenLikes, postId, type, commentId }) => {
     if (type === "liked" && postId) {
       const getUsersWhoLikedPost = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/posts/likes/${postId}`,{
+          const res = await axios.get(`/api/posts/likes/${postId}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -40,7 +40,7 @@ const Users = ({ setOpenRetweets, setOpenLikes, postId, type, commentId }) => {
     if (type === "retweeted" && postId) {
       const getUsersWhoRetweetedPost = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/posts/retweets/${postId}`,{
+          const res = await axios.get(`/api/posts/retweets/${postId}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -58,7 +58,7 @@ const Users = ({ setOpenRetweets, setOpenLikes, postId, type, commentId }) => {
     if (type === "liked" && commentId) {
       const getUsersWhoLikedPost = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/comments/likes/${commentId}`,{
+          const res = await axios.get(`/api/comments/likes/${commentId}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -77,7 +77,7 @@ const Users = ({ setOpenRetweets, setOpenLikes, postId, type, commentId }) => {
     if (type === "following" || type === "followers") {
       const getUser = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/${params.id}`,{
+          const res = await axios.get(`/api/users/${params.id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -96,7 +96,7 @@ const Users = ({ setOpenRetweets, setOpenLikes, postId, type, commentId }) => {
     if (user && active === "following" && (type === "following" || type === "followers")) {
       const getUserFollowing = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/followings/${user._id}`,{
+          const res = await axios.get(`/api/users/followings/${user._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -115,7 +115,7 @@ const Users = ({ setOpenRetweets, setOpenLikes, postId, type, commentId }) => {
     if (user && active === "followers" && (type === "following" || type === "followers")) {
       const getUserFollowers = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/followers/${user?._id}`,{
+          const res = await axios.get(`/api/users/followers/${user?._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }

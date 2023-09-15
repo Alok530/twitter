@@ -12,7 +12,7 @@ const RightbarUser = ({ user, currentUser }) => {
 
   const handleFollow = async () => {
     try {
-      const res = await axios.put(`${BASE_URL}/users/follow/${currentUser._id}`, {
+      const res = await axios.put(`/api/users/follow/${currentUser._id}`, {
         userId: user._id
       },{
         headers: {

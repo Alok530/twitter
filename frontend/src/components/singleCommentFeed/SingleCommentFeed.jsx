@@ -17,7 +17,7 @@ const SingleCommentFeed = () => {
   useEffect(() => {
     const getComment = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/comments/find/${params.id}`,{
+        const res = await axios.get(`/api/comments/find/${params.id}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }

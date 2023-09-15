@@ -18,7 +18,7 @@ const SearchInput = () => {
     if (searchTerm !== "") {
       const getSearchedUsers = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/search/users?q=${searchTerm}`,{
+          const res = await axios.get(`/api/search/users?q=${searchTerm}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }

@@ -68,7 +68,7 @@ const SingleComment = ({ comment, currentUser }) => {
     if (comment) {
       const getCommentCreator = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/${comment.userId}`,{
+          const res = await axios.get(`/api/users/${comment.userId}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -87,7 +87,7 @@ const SingleComment = ({ comment, currentUser }) => {
     const getPostThatWasCommented = async () => {
       if (comment) {
         try {
-          const res = await axios.get(`${BASE_URL}/posts/find/${comment.postId}`);
+          const res = await axios.get(`/api/posts/find/${comment.postId}`);
           setCommentedPost(res.data);
           setCommentCount(res.data.commentsCount);
         } catch (err) {
@@ -103,7 +103,7 @@ const SingleComment = ({ comment, currentUser }) => {
     if (commentedPost) {
       const getPostCreator = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/${commentedPost.userId}`);
+          const res = await axios.get(`/api/users/${commentedPost.userId}`);
           setPostCreator(res.data);
         } catch (err) {
           console.log(err);
@@ -123,7 +123,7 @@ const SingleComment = ({ comment, currentUser }) => {
   //like a post
   const handleLike = async () => {
     try {
-      await axios.put(`${BASE_URL}/users/like/${commentedPost._id}`, {
+      await axios.put(`/api/users/like/${commentedPost._id}`, {
         userId: currentUser._id
       });
       // setLike(isLiked ? like - 1 : like + 1);

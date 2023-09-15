@@ -28,7 +28,7 @@ const RegisterUpdate = () => {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/users`,{
+        const res = await axios.get(`/api/users`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -74,7 +74,7 @@ const RegisterUpdate = () => {
 
         console.log(updateUser);
 
-        const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, updatedUser,{
+        const res = await axios.put(`/api/users/${currentUser._id}`, updatedUser,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -89,7 +89,7 @@ const RegisterUpdate = () => {
     };
     if (about !== "") {
       try {
-        const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, {
+        const res = await axios.put(`/api/users/${currentUser._id}`, {
           userId: currentUser._id,
           about: about
         },{
@@ -110,7 +110,7 @@ const RegisterUpdate = () => {
       preferredContent: categories
     };
     try {
-      const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, updatedUser,{
+      const res = await axios.put(`/api/users/${currentUser._id}`, updatedUser,{
         headers: {
           Authorization: window.localStorage.getItem("tauthtoken")
         }

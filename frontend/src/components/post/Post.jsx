@@ -65,7 +65,7 @@ const Post = ({ post, setPosts }) => {
   useEffect(() => {
     if (post) {
       const getUser = async () => {
-        const res = await axios.get(`${BASE_URL}/users/${post?.userId}`,{
+        const res = await axios.get(`/api/users/${post?.userId}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -89,7 +89,7 @@ const Post = ({ post, setPosts }) => {
   //like a post
   const handleLike = async (postId) => {
     try {
-      await axios.put(`${BASE_URL}/users/like/${postId}`, {
+      await axios.put(`/api/users/like/${postId}`, {
         userId: currentUser._id
       },{
         headers: {
@@ -107,7 +107,7 @@ const Post = ({ post, setPosts }) => {
   //share a post
   const handleShare = async (postId) => {
     try {
-      await axios.put(`${BASE_URL}/users/share/${postId}`, {
+      await axios.put(`/api/users/share/${postId}`, {
         userId: currentUser._id
       },{
         headers: {

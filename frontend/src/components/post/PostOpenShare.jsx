@@ -17,7 +17,7 @@ const PostOpenShare = ({ setOpenShare, postId, currentUser }) => {
   const handleBookmark = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`${BASE_URL}/users/bookmark/${postId}`, {
+      const res = await axios.put(`/api/users/bookmark/${postId}`, {
         userId: currentUser._id
       },{
 

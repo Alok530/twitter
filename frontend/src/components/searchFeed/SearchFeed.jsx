@@ -23,7 +23,7 @@ const SearchFeed = () => {
     if (location?.search) {
       const getSearchedUsers = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/search/users${location.search}`,{
+          const res = await axios.get(`/api/search/users${location.search}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -43,7 +43,7 @@ const SearchFeed = () => {
     if (location?.search) {
       const getSearchedUsers = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/search/posts${location.search}`);
+          const res = await axios.get(`/api/search/posts${location.search}`);
           setSearchedPosts(res.data);
         } catch (err) {
           console.log(err);
@@ -58,7 +58,7 @@ const SearchFeed = () => {
     if (location?.search) {
       const getSearchedUsers = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/search/comments${location.search}`);
+          const res = await axios.get(`/api/search/comments${location.search}`);
           setSearchedComments(res.data);
         } catch (err) {
           console.log(err);

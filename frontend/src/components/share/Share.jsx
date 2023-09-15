@@ -137,7 +137,7 @@ const Share = ({ type, setPosts, postdone }) => {
           video: url,
         };
 
-        const res = await axios.post(`${BASE_URL}/posts`, newPost,{
+        const res = await axios.post(`/api/posts`, newPost,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -185,7 +185,7 @@ const Share = ({ type, setPosts, postdone }) => {
           desc: postInputText,
           images: imagesList,
         };
-        const res = await axios.post(`${BASE_URL}/posts`, newPost,{
+        const res = await axios.post(`/api/posts`, newPost,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -206,7 +206,7 @@ const Share = ({ type, setPosts, postdone }) => {
           userUsername: currentUser.username,
           desc: postInputText
         };
-        const res = await axios.post(`${BASE_URL}/posts`, newPost,{
+        const res = await axios.post(`/api/posts`, newPost,{
         headers: {
           Authorization: window.localStorage.getItem("tauthtoken")
         }

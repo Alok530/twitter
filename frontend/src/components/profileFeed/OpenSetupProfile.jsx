@@ -96,7 +96,7 @@ const OpenSetupProfile = ({
           coverPicture: url
         };
 
-        const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, updatedUser,{
+        const res = await axios.put(`/api/users/${currentUser._id}`, updatedUser,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -111,7 +111,7 @@ const OpenSetupProfile = ({
     };
     if (about !== "") {
       try {
-        const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, {
+        const res = await axios.put(`/api/users/${currentUser._id}`, {
           userId: currentUser._id,
           about: about
         },{
@@ -126,7 +126,7 @@ const OpenSetupProfile = ({
     };
     if (location !== "") {
       try {
-        const res = await axios.put(`${BASE_URL}/users/${currentUser._id}`, {
+        const res = await axios.put(`/api/users/${currentUser._id}`, {
           userId: currentUser._id,
           location: location
         },{

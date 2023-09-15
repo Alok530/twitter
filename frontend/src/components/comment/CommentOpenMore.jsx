@@ -20,7 +20,7 @@ const CommentOpenMore = ({ setOpenMore, commentCreator, commentId, setComments }
 
   const handleFollow = async () => {
     try {
-      const res = await axios.put(`${BASE_URL}/users/follow/${currentUser._id}`, {
+      const res = await axios.put(`/api/users/follow/${currentUser._id}`, {
         userId: commentCreator._id
       },{
         headers: {
@@ -44,7 +44,7 @@ const CommentOpenMore = ({ setOpenMore, commentCreator, commentId, setComments }
     e.preventDefault();
     if (commentCreator?._id === currentUser._id) {
       try {
-        const res = await axios.delete(`${BASE_URL}/comments/${commentId}`,{
+        const res = await axios.delete(`/api/comments/${commentId}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }

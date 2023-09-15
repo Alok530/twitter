@@ -25,7 +25,7 @@ const PostOpenMore = ({ setPosts, setOpenMore, user, userId, postId }) => {
     e.preventDefault();
     if (currentUser._id === userId) {
       try {
-        await axios.delete(`${BASE_URL}/posts/${postId}`,{
+        await axios.delete(`/api/posts/${postId}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
@@ -55,7 +55,7 @@ const PostOpenMore = ({ setPosts, setOpenMore, user, userId, postId }) => {
 
   const handleFollow = async () => {
     try {
-      const res = await axios.put(`${BASE_URL}/users/follow/${currentUser._id}`, {
+      const res = await axios.put(`/api/users/follow/${currentUser._id}`, {
         userId: user._id
       },{
         headers: {

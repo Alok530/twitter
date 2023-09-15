@@ -16,7 +16,7 @@ const BookmarkFeed = () => {
     if (currentUser) {
       const getBookmarks = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/bookmarks/${currentUser._id}`,{
+          const res = await axios.get(`/api/users/bookmarks/${currentUser._id}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }

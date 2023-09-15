@@ -15,7 +15,7 @@ const WhoToFollow = () => {
   useEffect(() => {
     const getRandomUsers = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/users/random/users/sample`,{
+        const res = await axios.get(`/api/users/random/users/sample`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }

@@ -32,7 +32,7 @@ const Comment = ({ comment, currentPost, setComments }) => {
     if (currentPost) {
       const getPostCreator = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/${currentPost.userId}`,{
+          const res = await axios.get(`/api/users/${currentPost.userId}`,{
             headers: {
               Authorization: window.localStorage.getItem("tauthtoken")
             }
@@ -51,7 +51,7 @@ const Comment = ({ comment, currentPost, setComments }) => {
     if (comment) {
       const getCommentCreator = async () => {
         try {
-          const res = await axios.get(`${BASE_URL}/users/${comment.userId}`);
+          const res = await axios.get(`/api/users/${comment.userId}`);
           setCommentCreator(res.data);
         } catch (err) {
           console.log(err);
@@ -69,7 +69,7 @@ const Comment = ({ comment, currentPost, setComments }) => {
   //like a comment
   const handleLikeComment = async () => {
     try {
-      await axios.put(`${BASE_URL}/users/like/comment/${comment._id}`, {
+      await axios.put(`/api/users/like/comment/${comment._id}`, {
         userId: currentUser._id
       });
       setCommentLike(isCommentLiked ? commentLike - 1 : commentLike + 1);

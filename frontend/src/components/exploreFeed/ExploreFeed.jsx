@@ -14,7 +14,7 @@ const ExploreFeed = () => {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/posts`,{
+        const res = await axios.get(`/api/posts`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }

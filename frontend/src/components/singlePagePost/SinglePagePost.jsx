@@ -62,7 +62,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
   //like a post
   const handleLike = async (postId) => {
     try {
-      await axios.put(`${BASE_URL}/users/like/${postId}`, {
+      await axios.put(`/api/users/like/${postId}`, {
         userId: currentUser._id
       },{
         headers: {
@@ -79,7 +79,7 @@ const SinglePagePost = ({ currentPost, currentUser, postCreator, type }) => {
   //share a post
   const handleShare = async (postId) => {
     try {
-      await axios.put(`${BASE_URL}/users/share/${postId}`, {
+      await axios.put(`/api/users/share/${postId}`, {
         userId: currentUser._id
       },{
         headers: {

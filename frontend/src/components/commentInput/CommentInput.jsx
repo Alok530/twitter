@@ -48,7 +48,7 @@ const CommentInput = ({ isCommenting, setIsCommenting, postCreator, currentUser,
     setLoading(true);
     if (!commentImage && !commentVideo) {
       try {
-        const res = await axios.post(`${BASE_URL}/comments`, {
+        const res = await axios.post(`/api/comments`, {
           userId: currentUser._id,
           postId: currentPost._id,
           text: commentText,
@@ -82,7 +82,7 @@ const CommentInput = ({ isCommenting, setIsCommenting, postCreator, currentUser,
           text: commentText
         };
 
-        const res = await axios.post(`${BASE_URL}/comments`, newComment);
+        const res = await axios.post(`/api/comments`, newComment);
         console.log(res.data);
         setComments((prev) => [...prev, res.data]);
         dispatch(incPostCommentCount());
@@ -109,7 +109,7 @@ const CommentInput = ({ isCommenting, setIsCommenting, postCreator, currentUser,
           text: commentText
         };
 
-        const res = await axios.post(`${BASE_URL}/comments`, newComment);
+        const res = await axios.post(`/api/comments`, newComment);
         console.log(res.data);
         setComments((prev) => [...prev, res.data]);
         dispatch(incPostCommentCount());

@@ -17,7 +17,7 @@ const Rightbar = ({ page }) => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/users`,{
+        const res = await axios.get(`/api/users`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }

@@ -16,7 +16,7 @@ const Feed = ({ title }) => {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/posts/timeline/${currentUser._id}`,{
+        const res = await axios.get(`/api/posts/timeline/${currentUser._id}`,{
           headers: {
             Authorization: window.localStorage.getItem("tauthtoken")
           }
