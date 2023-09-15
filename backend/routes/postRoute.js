@@ -1,5 +1,5 @@
 const express = require("express");
-const { createPost, deletePost,updatePost, getPost, getPosts, getTimeline, getUsersWhoLiked, getUsersWhoRetweeted } = require("../controllers/postController.js");
+const { createPost, deletePost,updatePost, getPost, getPosts, getTimeline, getUsersWhoLiked } = require("../controllers/postController.js");
 const { verifyToken } = require("../middleware/auth.js");
 
 const router = express.Router();
@@ -23,7 +23,7 @@ router.get("/find/:id", getPost);
 router.get("/likes/:postId", verifyToken,getUsersWhoLiked);
 
 //GET USERS WHO RETWEETED A POST
-router.get("/retweets/:postId", verifyToken,getUsersWhoRetweeted);
+// router.get("/retweets/:postId", verifyToken,getUsersWhoRetweeted);
 
 //DELETE
 router.delete("/:id", verifyToken,deletePost);

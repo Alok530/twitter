@@ -5,10 +5,10 @@ const jwt = require("jsonwebtoken");
 const signup = async (req, res, next) => {
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(req.body.password, salt);
-  const isexist = await User.find({username:req.body.username});
-  if(isexist){
-    return res.status(400).json('username already present');
-  }
+  // const isexist = await User.find({username:req.body.username});
+  // if(isexist){
+  //   return res.status(400).json('username already present');
+  // }
   try {
     const newUser = new User({
       ...req.body,

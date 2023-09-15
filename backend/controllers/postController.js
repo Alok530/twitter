@@ -89,27 +89,27 @@ const getUsersWhoLiked = async (req, res, next) => {
   };
 };
 
-const getUsersWhoRetweeted = async (req, res, next) => {
-  const postId = req.params.postId;
-  try {
-    const post = await Post.findById(postId);
-    const usersWhoRetweeted = await Promise.all(
-      post.shares.map((userId) => {
-        return User.findById(userId);
-      })
-    );
+// const getUsersWhoRetweeted = async (req, res, next) => {
+//   const postId = req.params.postId;
+//   try {
+//     const post = await Post.findById(postId);
+//     const usersWhoRetweeted = await Promise.all(
+//       post.shares.map((userId) => {
+//         return User.findById(userId);
+//       })
+//     );
 
-    let usersList = [];
-    usersWhoRetweeted.map((user) => {
-      const { _id, username, profilePicture, about } = user;
-      usersList.push({ _id, username, profilePicture, about });
-    });
+//     let usersList = [];
+//     usersWhoRetweeted.map((user) => {
+//       const { _id, username, profilePicture, about } = user;
+//       usersList.push({ _id, username, profilePicture, about });
+//     });
 
-    res.status(200).json(usersList);
-  } catch (err) {
-    next(err);
-  };
-};
+//     res.status(200).json(usersList);
+//   } catch (err) {
+//     next(err);
+//   };
+// };
 
 
 const getTimeline = async (req, res, next) => {
@@ -128,4 +128,4 @@ const getTimeline = async (req, res, next) => {
   };
 };
 
-module.exports = {deletePost,getTimeline,createPost,updatePost,getPost,getPosts,getUsersWhoLiked,getUsersWhoRetweeted}
+module.exports = {deletePost,getTimeline,createPost,updatePost,getPost,getPosts,getUsersWhoLiked}
