@@ -30,8 +30,7 @@ dbcoonection();
 
 app.use(
   cors({
-    // origin: [`http://localhost:${3000}`],
-    origin: true,
+    origin: ['https://twitter-39bb.onrender.com/'],    
     credentials: true,
   })
 );
