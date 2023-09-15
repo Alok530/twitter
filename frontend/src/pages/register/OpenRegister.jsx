@@ -46,7 +46,8 @@ const OpenRegister = ({ setOpenRegister }) => {
     }
     dispatch(signupStart());
     try {
-      const res = await axios.post(`${BASE_URL}/auth/signup`, {
+      // const res = await axios.post(`${BASE_URL}/auth/signup`, {
+        const res = await axios.post(`/api/auth/signup`, {
         name: formData.name,
         username: formData.username,
         password: password,
